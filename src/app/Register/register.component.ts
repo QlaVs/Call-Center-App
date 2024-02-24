@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { RouterOutlet, RouterLink, ActivatedRoute } from '@angular/router';
+import { RouterOutlet, RouterLink, ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Cookie } from '../utils/cookies';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'register-page',
@@ -14,7 +15,8 @@ import { Cookie } from '../utils/cookies';
 export class RegisterComponent {
   constructor(
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   title: any = '';
@@ -37,6 +39,8 @@ export class RegisterComponent {
 
     let currentUsers = JSON.parse(localStorage.getItem('users') as string) || [];
     if (currentUsers.filter(this.filterByUniceLogin).length == 0) {
+      const userToken: string = uuidv4();
+
       localStorage.setItem('users',
         JSON.stringify(
           currentUsers.concat({
@@ -45,13 +49,27 @@ export class RegisterComponent {
           })
         )
       );
+
+      var expDate = new Date().getTime() + (3600 * 1000);
+      
+      // Токены сваливаются в общий массив, в идеале нужно добавить очистку токенов
+      localStorage.setItem('tokens',
+        JSON.stringify(
+          currentUsers.concat({
+            userToken: userToken,
+            expirationTime: expDate
+          })
+        )
+      );
   
       let cookie: Cookie = new Cookie();
-      cookie.setCookie('login', this.registerForm.value.login as string, 1);
+      cookie.setCookie('userToken', userToken, 0.04);
+      cookie.setCookie('login', this.registerForm.value.login as string, 0.04);
   
-      console.warn("You've been logged in - ", this.registerForm.value);
+      console.warn("You've been registered - ", this.registerForm.value);
       this.registerForm.reset();
 
+      this.router.navigate(['/call']);
     } else {
       alert("Current login is already taken");
       return;

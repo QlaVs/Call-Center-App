@@ -10,5 +10,5 @@ import { RouterOutlet } from '@angular/router';
 })
 
 export class JournalComponent {
-  title = 'Journal Page Title';
+  title = 'Journal Page';
 }

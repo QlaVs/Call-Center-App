@@ -1,3 +1,6 @@
+import { Injectable } from "@angular/core";
+
+@Injectable({ providedIn: 'root' })
 export class Cookie {
 
     public getCookie(name: string) {
@@ -24,6 +27,6 @@ export class Cookie {
         d.setTime(d.getTime() + expireDays * 24 * 60 * 60 * 1000);
         let expires:string = `expires=${d.toUTCString()}`;
         let cpath:string = path ? `; path=${path}` : '';
-        document.cookie = `${name}=${value}; ${expires}${cpath}`;
+        document.cookie = `${name}=${value}; ${expires}${cpath}; SameSite=Strict`;
     }
 }

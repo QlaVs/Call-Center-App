@@ -1,19 +1,39 @@
+import { NgIf, Location } from '@angular/common';
 import { Component } from '@angular/core';
-import { ActivatedRoute, RouterOutlet, Router, NavigationEnd } from '@angular/router';
+import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
+import { Cookie } from './utils/cookies';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, NgIf],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  // constructor(
-  //   public route: ActivatedRoute
-  // ) {}
+  currentUrl: any;
 
-  // ngOnInit() {
-  //   console.log(this.route);
-  // }
+  constructor(
+    public router: Router,
+    public location: Location,
+  ) {
+    this.router.events.subscribe((event: any) => {
+      if (event instanceof NavigationEnd) {
+        this.currentUrl = this.location.path();
+      }
+    });
+  }
+
+  ngOnInit() {
+  }
+
+
+  logout() {
+    const logoutConfirmation = confirm('Are you sure you want to logout?');
+    if (logoutConfirmation) {
+      const cookie: Cookie = new Cookie();
+      cookie.deleteCookie('userToken');
+      this.router.navigate(['/login']);
+    }
+  }
 }

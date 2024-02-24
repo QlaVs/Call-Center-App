@@ -1,1 +1,7 @@
+<button 
+    *ngIf="!(currentUrl === '/login' || currentUrl === '/register' || currentUrl === '')"
+    (click)="logout()"
+>
+    Logout
+</button>
 <router-outlet />
