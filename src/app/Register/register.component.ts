@@ -26,6 +26,7 @@ export class RegisterComponent {
   }
 
   registerForm = this.formBuilder.group({
+    fio: new FormControl("", Validators.required),
     login: new FormControl("", Validators.required),
     password: new FormControl("", Validators.required),
     passwordRepeat: new FormControl("", Validators.required),
@@ -45,7 +46,8 @@ export class RegisterComponent {
         JSON.stringify(
           currentUsers.concat({
             login: this.registerForm.value.login as string,
-            password: this.registerForm.value.password as string
+            password: this.registerForm.value.password as string,
+            fio: this.registerForm.value.fio as string,
           })
         )
       );

@@ -1,2 +1,32 @@
 <h2>This is journal page</h2>
 
+<a routerLink="/call">Call page</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>User Name</th>
+            <th>Track</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Duration</th>
+            <th>Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of journal" id="{{'track-' + item.trackId}}">
+            <td>{{item.name}}</td>
+            <td>
+                <audio controls>
+                    <source [src]="item.track" type="audio/webm">
+                </audio>
+            </td>
+            <td>{{item.startTime}}</td>
+            <td>{{item.endTime}}</td>
+            <td>{{item.duration}}</td>
+            <td>
+                <button (click)="deleteRow(item.trackId)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

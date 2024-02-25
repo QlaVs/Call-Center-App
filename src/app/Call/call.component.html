@@ -1,4 +1,5 @@
 <h2>{{title}}</h2>
+<a routerLink="/journal">Journal </a>
 <div>
 	<button class="start-button" *ngIf="!isRecording && !blobUrl" (click)="startRecording()">Start Recording</button>
 
@@ -7,11 +8,11 @@
 	<button class="cancel-button" *ngIf="!isRecording && blobUrl" (click)="clearRecordedData()">Clear Recording</button>
 
 	<br>
-	<button class="cancel-button" *ngIf="!isRecording && blobUrl" (click)="save()">Save Recording</button>
+	<button class="cancel-button" *ngIf="!isRecording && blobUrl && saveable" (click)="save()">Save Recording</button>
 
 	<div *ngIf="isRecording && !blobUrl"> {{recordedTime}} </div>
 	<div>
-		<audio *ngIf="!isRecording && blobUrl" controls>
+		<audio *ngIf="!isRecording && blobUrl" controls autoplay>
 			<source [src]="blobUrl" type="audio/webm">
 		</audio>
 	</div>
