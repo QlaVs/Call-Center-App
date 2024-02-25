@@ -1,9 +1,5 @@
 import { Routes } from '@angular/router';
 import { Guard } from './utils/guard';
-import { LoginComponent } from './Login/login.component';
-import { RegisterComponent } from './Register/register.component';
-import { CallComponent } from './Call/call.component';
-import { JournalComponent } from './Journal/journal.component';
 
 export const routes: Routes = [
     { 

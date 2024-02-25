@@ -1,37 +1,37 @@
-<h2>{{ title }}</h2>
-
-<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-  <span class="hint">Fill all fields</span>
+<div class="form__wrapper">
+  <form class="form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <h2 class="form__title">Call App</h2>
+    <span class="form__hint">Fill all fields</span>
+    <div class="form__field">
+      <label class="form__field--label" for="login">
+        Login
+      </label>
+      <input class="form__field--input" id="login" type="text" formControlName="login">
+    </div>
   
-  <div>
-    <label for="login">
-      Login
-    </label>
-    <input id="login" type="text" formControlName="login">
-  </div>
-
-  <div>
-    <label for="fio">
-      Full name
-    </label>
-    <input id="fio" type="text" formControlName="fio">
-  </div>
-
-  <div>
-    <label for="password">
-      Password
-    </label>
-    <input id="password" type="password" formControlName="password">
-  </div>
-
-  <div>
-    <label for="passwordRepeat">
-      Repeat password
-    </label>
-    <input id="passwordRepeat" type="password" formControlName="passwordRepeat">
-  </div>
-
-  <button class="button" type="submit" [disabled]="registerForm.invalid">Register</button>
-  <div class="no_account">Have account? <a routerLink="/login">Login</a></div>
-
-</form>
+    <div class="form__field">
+      <label class="form__field--label" for="fio">
+        Full name
+      </label>
+      <input class="form__field--input" id="fio" type="text" formControlName="fio">
+    </div>
+  
+    <div class="form__field">
+      <label class="form__field--label" for="password">
+        Password
+      </label>
+      <input class="form__field--input" id="password" type="password" formControlName="password">
+    </div>
+  
+    <div class="form__field">
+      <label class="form__field--label" for="passwordRepeat">
+        Repeat password
+      </label>
+      <input class="form__field--input" id="passwordRepeat" type="password" formControlName="passwordRepeat">
+    </div>
+  
+    <button class="form__button" type="submit" [disabled]="registerForm.invalid">Register</button>
+    <div class="no_account">Have account? <a routerLink="/login">Login</a></div>
+  
+  </form>
+</div>

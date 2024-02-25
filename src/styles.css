@@ -1,1 +1,63 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: "iddqd";
+    src: url(./assets/fonts/guessthefont.woff2);
+}
+
+
+:root {
+    font-family: 'iddqd', 'Noto Sans';
+    --c-background: #626ffc;
+    --c-background-accent: #313338;
+    --c-background-lighter: #313338e8;
+    --c-text: #dfe9f2;
+    --c-text-secondary: #8995a0;
+    --c-text-disabled: #969ba0;
+    --c-button: #5865f2;
+    --c-button-hover: #4752c9;
+    --c-button-disabled: #757894;
+    --c-link: #2977df;
+    --c-warning: #e2469ca2;
+    --c-info: #29cc7b9a;
+}
+
+body,
+input,
+button {
+    font-family: 'iddqd', 'Noto Sans';
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    background-color: var(--c-background-lighter);
+    color: var(--c-text);
+}
+
+a,
+a:visited {
+    color: var(--c-link);
+}
+
+button {
+    display: block;
+    background-color: var(--c-button);
+    color: var(--c-text);
+    font-size: 16px;
+    padding: 8px;
+    outline: 0;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: var(--c-button-hover);
+}
+
+
+button:disabled {
+    background-color: var(--c-button-disabled);
+    color: var(--c-text-disabled);
+}

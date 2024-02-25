@@ -1,19 +1,24 @@
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label for="login">
-      Login
-    </label>
-    <input id="login" type="text" formControlName="login">
-  </div>
+<div class="form__wrapper">
+  <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <h2 class="form__title">Call App</h2>
 
-  <div>
-    <label for="password">
-      Password
-    </label>
-    <input id="password" type="text" formControlName="password">
-  </div>
+    <div class="form__field">
+      <label class="form__field--label" for="login">
+        Login
+      </label>
+      <input class="form__field--input" id="login" type="text" formControlName="login">
+    </div>
+  
+    <div class="form__field">
+      <label class="form__field--label" for="password">
+        Password
+      </label>
+      <input class="form__field--input" id="password" type="password" formControlName="password">
+    </div>
+  
+    <button class="form__button" type="submit">Login</button>
+  
+    <div class="no_account">No account? <a routerLink="/register">Register</a></div>
+  </form>
 
-  <button class="button" type="submit">Login</button>
-
-  <div class="no_account">No account? <a routerLink="/register">Register</a></div>
-</form>
+</div>

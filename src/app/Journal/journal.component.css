@@ -1,0 +1,93 @@
+.title {
+    text-align: center;
+}
+
+.table__wrapper {
+    overflow-x: auto;
+    position: fixed;
+    left: 20px;
+    right: 20px;
+}
+
+.audio {
+    width: 110px;
+    animation: audioWidth 0.1s forwards;
+}
+  
+.audio::-webkit-media-controls-panel {
+    justify-content: center;
+}
+
+.audio::-webkit-media-controls-volume-slider {
+    display: none !important;
+    min-width: 0;
+}
+
+.audio::-webkit-media-controls-timeline-container {
+    display: none !important;
+    min-width: 0;
+}
+
+.audio::-webkit-media-controls-time-remaining-display {
+    display: none !important;
+    min-width: 0;
+}
+
+.audio::-webkit-media-controls-timeline {
+    display: none !important;
+    min-width: 0;
+}
+
+@keyframes audioWidth {
+    from {
+        width: 110px;
+    }
+    to {
+        width: 84px;
+    }
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: separate;
+    border-radius: 10px;
+    border: 1px solid var(--c-text);
+}
+
+table th:not(:last-child),
+table td:not(:last-child) {
+    border-right: 1px solid var(--c-text);
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr:not(:last-child) > th,
+table > tbody > tr:not(:last-child) > td,
+table > tr:not(:last-child) > td,
+table > tr:not(:last-child) > th,
+table > thead,
+table > tbody:not(:last-child) {
+    border-bottom: 1px solid var(--c-text);
+}
+
+table tbody td,
+table thead th {
+    padding: 5px 10px;
+    text-align: center;
+}
+
+td button {
+    margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+    table {
+        margin: 0 auto;
+    }
+}
+
+@media screen and (min-width: 982px) {
+    table {
+        width: 100%;
+    }
+}

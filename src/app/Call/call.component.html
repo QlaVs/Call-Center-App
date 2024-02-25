@@ -1,18 +1,17 @@
-<h2>{{title}}</h2>
-<a routerLink="/journal">Journal </a>
-<div>
-	<button class="start-button" *ngIf="!isRecording && !blobUrl" (click)="startRecording()">Start Recording</button>
+<div class="wrapper">
+	<h2 class="title">{{title}}</h2>
 
-	<button class="stop-button" *ngIf="isRecording && !blobUrl" (click)="stopRecording()">Stop Recording</button>
+	<button class="button button--start" *ngIf="!isRecording && !blobUrl" (click)="startRecording()">Start Call</button>
 
-	<button class="cancel-button" *ngIf="!isRecording && blobUrl" (click)="clearRecordedData()">Clear Recording</button>
+	<button class="button button--stop" *ngIf="isRecording && !blobUrl" (click)="stopRecording()">Stop Call</button>
 
-	<br>
-	<button class="cancel-button" *ngIf="!isRecording && blobUrl && saveable" (click)="save()">Save Recording</button>
+	<button class="button button--cancel" *ngIf="!isRecording && blobUrl" (click)="clearRecordedData()">Clear Call</button>
 
-	<div *ngIf="isRecording && !blobUrl"> {{recordedTime}} </div>
+	<button class="button button--save" *ngIf="!isRecording && blobUrl && saveable" (click)="save()">Save Call</button>
+
+	<div class="timer" *ngIf="isRecording && !blobUrl"> {{recordedTime}} </div>
 	<div>
-		<audio *ngIf="!isRecording && blobUrl" controls autoplay>
+		<audio class="audio" *ngIf="!isRecording && blobUrl" controls autoplay>
 			<source [src]="blobUrl" type="audio/webm">
 		</audio>
 	</div>

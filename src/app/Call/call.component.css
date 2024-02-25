@@ -1,0 +1,40 @@
+.title {
+    text-align: center;
+}
+
+.timer {
+    font-size: 40px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+}
+
+.audio {
+    border-radius: 10px;
+    width: calc(100% - 20px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.button {
+    margin: 0 auto;
+    width: 200px;
+    bottom: 20px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.button--cancel {
+    bottom: 70px;
+    background-color: var(--c-warning);
+}
+
+.button--save {
+    background-color: var(--c-info);
+}

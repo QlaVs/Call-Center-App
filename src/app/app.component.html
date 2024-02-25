@@ -1,7 +1,36 @@
-<button 
+<img 
+    class="background"
+    *ngIf="(currentUrl === '/login' || currentUrl === '/register' || currentUrl === '')"
+    src="assets/img/background.svg"
+/>
+
+<div class="menu"
     *ngIf="!(currentUrl === '/login' || currentUrl === '/register' || currentUrl === '')"
-    (click)="logout()"
 >
-    Logout
-</button>
-<router-outlet />
+    <button class="menu__link logout" 
+        (click)="logout()"
+    >
+        Logout
+    </button>
+    
+    <button
+        class="menu__link"
+        routerLink="/journal"
+        *ngIf="currentUrl === '/call'"
+    > 
+        Journal 
+    </button>
+    
+    <button
+        class="menu__link"
+        routerLink="/call"
+        *ngIf="currentUrl === '/journal'"
+    > 
+        Call Page 
+    </button>
+</div>
+
+
+<div class="container">
+    <router-outlet ></router-outlet>
+</div>

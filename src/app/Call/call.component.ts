@@ -110,8 +110,9 @@ export class CallComponent implements OnDestroy{
         }]});
       }
       localStorage.setItem('audioTracks', JSON.stringify(audioData));
-      alert('Record saved!');
     }
+    this.blobUrl = null;
     this.saveable = false;
+    alert('Record saved!');
   }
 }
