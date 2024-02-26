@@ -38,3 +38,15 @@
 .button--save {
     background-color: var(--c-info);
 }
+
+@media screen and (min-width: 992px) {
+    .button {
+        margin: 0 auto;
+        width: 300px;
+        font-size: 24px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        text-align: center;
+    }
+}

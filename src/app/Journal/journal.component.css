@@ -90,4 +90,9 @@ td button {
     table {
         width: 100%;
     }
+
+    .table__wrapper {
+        left: 150px;
+        right: 150px;
+    }
 }
